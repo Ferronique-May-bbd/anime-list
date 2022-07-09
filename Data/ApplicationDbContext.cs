@@ -9,5 +9,7 @@ namespace anime_list.Data
             : base(options)
         {
         }
+
+        public DbSet<AnimeList> AnimeList { get; set; }
     }
 }
