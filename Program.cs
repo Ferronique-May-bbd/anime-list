@@ -42,3 +42,16 @@ app.MapControllerRoute(
 app.MapRazorPages();
 
 app.Run();
+
+var services = builder.Services;
+var config = builder.Configuration;
+
+
+builder.Services.AddAuthentication()
+   .AddGoogle(options =>
+   {
+       IConfigurationSection googleAuthNSection =
+       config.GetSection("Authentication:Google");
+       options.ClientId = googleAuthNSection["ClientId"];
+       options.ClientSecret = googleAuthNSection["ClientSecret"];
+   });
