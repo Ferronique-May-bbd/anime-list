@@ -18,7 +18,13 @@ namespace anime_list.Controllers
             return View();
         }
 
+       
         public IActionResult Privacy()
+        {
+            return View();
+        }
+
+          public IActionResult viewAnime()
         {
             return View();
         }
