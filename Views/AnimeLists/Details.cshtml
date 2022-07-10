@@ -1,37 +1,12 @@
 ﻿@*@model anime_list.Data.AnimeList*@
 @model anime_list.Data.AnimeWithRating
 
-
 @{
     ViewData["Title"] = "Details";
 }
 
 <h1>Details</h1>
 
-@*<div>
-    <h4>AnimeList</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ScreenTime)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ScreenTime)
-        </dd>
-    </dl>
-</div>*@
 <div>
     <h4>AnimeList</h4>
     <hr />
@@ -58,7 +33,61 @@
             @Html.DisplayNameFor(model => model.AnimeRating)
         </dt>
         <dd class = "col-sm-10">    
-            @Html.DisplayFor(model => model.AnimeRating)
+           
+            @{
+                var checkRating = @Model.AnimeRating;
+                
+                if(checkRating == 1 )
+                {
+                    <img src="~/images/fullStar.png" style="height:30px;width:30px;"/>
+                    <img src="~/images/emptyStar.png" style="height:30px;width:30px;"/>
+                    <img src="~/images/emptyStar.png" style="height:30px;width:30px;"/>
+                    <img src="~/images/emptyStar.png" style="height:30px;width:30px;"/>
+                    <img src="~/images/emptyStar.png" style="height:30px;width:30px;"/>
+                }
+                else if(checkRating == 2 )
+                {
+                    <img src="~/images/fullStar.png" style="height:30px;width:30px;"/>
+                    <img src="~/images/fullStar.png" style="height:30px;width:30px;"/>
+                    <img src="~/images/emptyStar.png" style="height:30px;width:30px;"/>
+                    <img src="~/images/emptyStar.png" style="height:30px;width:30px;"/>
+                    <img src="~/images/emptyStar.png" style="height:30px;width:30px;"/>
+                }
+                else if(checkRating == 3 )
+                {
+                    <img src="~/images/fullStar.png" style="height:30px;width:30px;"/>
+                    <img src="~/images/fullStar.png" style="height:30px;width:30px;"/>
+                    <img src="~/images/fullStar.png" style="height:30px;width:30px;"/>
+                    <img src="~/images/emptyStar.png" style="height:30px;width:30px;"/>
+                    <img src="~/images/emptyStar.png" style="height:30px;width:30px;"/>
+                }
+                else if(checkRating == 4 )
+                {
+                   <img src="~/images/fullStar.png" style="height:30px;width:30px;"/>
+                   <img src="~/images/fullStar.png" style="height:30px;width:30px;"/>
+                   <img src="~/images/fullStar.png" style="height:30px;width:30px;"/>
+                   <img src="~/images/fullStar.png" style="height:30px;width:30px;"/>
+                   <img src="~/images/emptyStar.png" style="height:30px;width:30px;"/>
+                }
+                else if(checkRating == 5 )
+                {
+                   <img src="~/images/fullStar.png" style="height:30px;width:30px;"/>
+                   <img src="~/images/fullStar.png" style="height:30px;width:30px;"/>
+                   <img src="~/images/fullStar.png" style="height:30px;width:30px;"/>
+                   <img src="~/images/fullStar.png" style="height:30px;width:30px;"/>
+                   <img src="~/images/fullStar.png" style="height:30px;width:30px;"/>
+                }
+                
+                else
+                {
+                    <img src="~/images/emptyStar.png" style="height:30px;width:30px;"/>
+                    <img src="~/images/emptyStar.png" style="height:30px;width:30px;"/>
+                    <img src="~/images/emptyStar.png" style="height:30px;width:30px;"/>
+                    <img src="~/images/emptyStar.png" style="height:30px;width:30px;"/>
+                    <img src="~/images/emptyStar.png" style="height:30px;width:30px;"/>
+                }
+                }
+            
         </dd>
     </dl>
 </div>
@@ -67,3 +96,5 @@
     <a asp-action="Edit" asp-route-id="@Model?.AnimeListId">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>
+
+

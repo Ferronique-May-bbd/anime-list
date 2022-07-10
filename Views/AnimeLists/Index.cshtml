@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<anime_list.Data.AnimeList>
 
+
 @{
     ViewData["Title"] = "Index";
 }
@@ -16,6 +17,9 @@
 <table class="table">
     <thead>
         <tr>
+             <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
@@ -32,8 +36,8 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-            <img src="~/images/demonSlayer.jpg" style="height:150px;width:150px;"/>
-
+                 @* @Html.DisplayFor(modelItem => item.Image) *@
+                 <img src="@Url.Content(item.Image)" style="height: 100px; width:110px" />
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
