@@ -14,6 +14,11 @@ namespace anime_list.Controllers
             _context = context;
         }
 
+        //public UserController(string email)
+        //{
+        //    _email = email;
+        //}
+
         public async Task<IActionResult> Index()
         {
             return _context.AnimeList != null ?
@@ -30,7 +35,7 @@ namespace anime_list.Controllers
         // POST: UserController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> CreateAsync([Bind("UserID,Name,Surname,EmailAddress")] User user, AnimeList animeList)
+        public async Task<ActionResult> CreateAsync([Bind("UserID,Name,Surname,EmailAddress")] User user)
         {
             if (ModelState.IsValid)
             {
@@ -38,7 +43,7 @@ namespace anime_list.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(animeList);
+            return View();
         }
 
         // GET: UserController/Edit/5
