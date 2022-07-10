@@ -1,41 +1,44 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using anime_list.Data;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace anime_list.Controllers
 {
     public class UserController : Controller
     {
-        // GET: UserController
-        public ActionResult Index()
+        private readonly ApplicationDbContext _context;
+
+        public UserController(ApplicationDbContext context)
         {
-            return View();
+            _context = context;
         }
 
-        // GET: UserController/Details/5
-        public ActionResult Details(int id)
+        public async Task<IActionResult> Index()
         {
-            return View();
+            return _context.AnimeList != null ?
+                        View(await _context.AnimeList.ToListAsync()) :
+                        Problem("Entity set 'ApplicationDbContext.AnimeList'  is null.");
         }
 
         // GET: UserController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
+        //public ActionResult Create()
+        //{
+        //    return View();
+        //}
 
         // POST: UserController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<ActionResult> CreateAsync([Bind("UserID,Name,Surname,EmailAddress")] User user, AnimeList animeList)
         {
-            try
+            if (ModelState.IsValid)
             {
+                _context.Add(user);
+                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            catch
-            {
-                return View();
-            }
+            return View(animeList);
         }
 
         // GET: UserController/Edit/5

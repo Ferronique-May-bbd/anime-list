@@ -12,5 +12,6 @@ namespace anime_list.Data
 
         public DbSet<AnimeList> AnimeList { get; set; }
         public DbSet<UserRating> UserRating { get; set; }
+        public DbSet<User> User { get; set; }
     }
 }
