@@ -1,4 +1,5 @@
-﻿@model anime_list.Data.AnimeList
+﻿@*@model anime_list.Data.AnimeList*@
+@model anime_list.Data.AnimeWithRating
 
 @{
     ViewData["Title"] = "Details";
@@ -6,6 +7,30 @@
 
 <h1>Details</h1>
 
+@*<div>
+    <h4>AnimeList</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ScreenTime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ScreenTime)
+        </dd>
+    </dl>
+</div>*@
 <div>
     <h4>AnimeList</h4>
     <hr />
@@ -27,6 +52,12 @@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.ScreenTime)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AnimeRating)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AnimeRating)
         </dd>
     </dl>
 </div>

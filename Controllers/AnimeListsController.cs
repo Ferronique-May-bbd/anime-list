@@ -41,7 +41,39 @@ namespace anime_list.Controllers
                 return NotFound();
             }
 
-            return View(animeList);
+            //getting rating 
+            var rating = await _context.UserRating.FirstOrDefaultAsync(m => m.AnimeListId == id);
+                
+            if(rating == null) 
+            {
+
+                var animeWithZeroRating = new AnimeWithRating()
+                {
+                    AnimeListId = animeList.AnimeListId,
+                    Name = animeList.Name,
+                    Description = animeList.Description,
+                    ScreenTime = animeList.ScreenTime,
+                    AnimeRating = 0
+
+
+                };
+
+                return View(animeWithZeroRating);
+            }
+
+            var animeWithRating = new AnimeWithRating()
+            {
+                AnimeListId = animeList.AnimeListId,
+                Name = animeList.Name,
+                Description = animeList.Description,
+                ScreenTime = animeList.ScreenTime,
+                AnimeRating = rating.AnimeRating
+
+                
+            };
+            //
+            return View(animeWithRating);
+            // return View(animeList);
         }
 
         // GET: AnimeLists/Create
