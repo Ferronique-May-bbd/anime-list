@@ -166,6 +166,7 @@ ApplicationInsights.config
 # Windows Store app package directory
 AppPackages/
 BundleArtifacts/
+vscode/
 
 # Visual Studio cache files
 # files ending in .cache can be ignored

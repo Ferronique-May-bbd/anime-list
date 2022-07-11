@@ -1,17 +1,25 @@
 ﻿@model IEnumerable<anime_list.Data.AnimeList>
 
+
 @{
     ViewData["Title"] = "Index";
 }
+  <link rel="stylesheet" href="~/https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="~/https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="~/https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 <h1>Anime List</h1>
+<br>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create"> <button type="button" class="btn btn-warning ">Create New</button></a>
 </p>
 <table class="table">
     <thead>
         <tr>
+             <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
@@ -28,6 +36,10 @@
 @foreach (var item in Model) {
         <tr>
             <td>
+                 @* @Html.DisplayFor(modelItem => item.Image) *@
+                 <img src="@Url.Content(item.Image)" style="height: 100px; width:110px" />
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
@@ -37,11 +49,18 @@
                 @Html.DisplayFor(modelItem => item.ScreenTime)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.AnimeListId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.AnimeListId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.AnimeListId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.AnimeListId">
+                    <button type="button" class="btn btn-link">Edit</button></a> 
+                    <br>
+                <a asp-action="Details" asp-route-id="@item.AnimeListId">
+                    <button type="button" class="btn btn-link">Details</button></a> 
+                     <br>
+                <a asp-action="Delete" asp-route-id="@item.AnimeListId">
+                    <button type="button" class="btn btn-link">Delete</button>
+                </a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+
