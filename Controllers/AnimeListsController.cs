@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using anime_list.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace anime_list.Controllers
 {
+    [Authorize]
     public class AnimeListsController : Controller
     {
         private readonly ApplicationDbContext _context;
