@@ -1,5 +1,6 @@
-﻿@*@model anime_list.Data.AnimeList*@
-@model anime_list.Data.AnimeWithRating
+﻿@model anime_list.Data.AnimeWithRating
+
+
 
 @{
     ViewData["Title"] = "Details";
@@ -11,6 +12,13 @@
     <h4>AnimeList</h4>
     <hr />
     <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayName("")
+        </dt>
+        <dd class = "col-sm-10">
+           <img src="@Url.Content(@Model.Image)" style="height: 200px; width:300px align: center" />
+        </dd>
+
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Name)
         </dt>
@@ -93,8 +101,8 @@
 </div>
 
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.AnimeListId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model?.AnimeListId"> <button type="button" class="btn btn-warning ">Edit</button></a> 
+    <a asp-action="Index"><button type="button" class="btn btn-warning ">Back to List</button></a>
 </div>
 
 

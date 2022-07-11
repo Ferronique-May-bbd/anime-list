@@ -53,6 +53,7 @@ namespace anime_list.Controllers
                     Name = animeList.Name,
                     Description = animeList.Description,
                     ScreenTime = animeList.ScreenTime,
+                    Image = animeList.Image,
                     AnimeRating = 0
 
 
@@ -67,6 +68,7 @@ namespace anime_list.Controllers
                 Name = animeList.Name,
                 Description = animeList.Description,
                 ScreenTime = animeList.ScreenTime,
+                Image = animeList.Image,
                 AnimeRating = rating.AnimeRating
 
                 
