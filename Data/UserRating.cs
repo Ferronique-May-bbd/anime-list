@@ -2,7 +2,7 @@
 {
     public class UserRating
     {
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         public int AnimeListId { get; set; }
         public int AnimeRating { get; set; }
         public int UserRatingId { get; set; }
