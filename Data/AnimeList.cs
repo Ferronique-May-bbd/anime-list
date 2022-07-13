@@ -13,5 +13,6 @@ namespace anime_list.Data
         public string ScreenTime { get; set; }
 
         public string Image { get; set; }
+
     }
 }

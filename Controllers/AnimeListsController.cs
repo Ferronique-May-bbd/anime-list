@@ -39,7 +39,7 @@ namespace anime_list.Controllers
             }
 
             //getting rating 
-            var rating = await _context.UserRating.FirstOrDefaultAsync(m => m.AnimeListId == id);
+            var rating = await _context.AnimeRatings.FirstOrDefaultAsync(m => m.AnimeListId == id);
                 
             if(rating == null) 
             {
@@ -86,7 +86,7 @@ namespace anime_list.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("AnimeListId,Name,Description,ScreenTime")] AnimeList animeList)
+        public async Task<IActionResult> Create([Bind("AnimeListId,Name,Description,ScreenTime,Image")] AnimeList animeList)
         {
             if (ModelState.IsValid)
             {
@@ -110,7 +110,20 @@ namespace anime_list.Controllers
             {
                 return NotFound();
             }
-            return View(animeList);
+
+            var animeWithRating = new AnimeWithRating()
+            {
+                AnimeListId = animeList.AnimeListId,
+                Name = animeList.Name,
+                Description = animeList.Description,
+                ScreenTime = animeList.ScreenTime,
+                Image = animeList.Image,
+                
+
+
+            };
+
+            return View(animeWithRating);
         }
 
         // POST: AnimeLists/Edit/5
@@ -118,7 +131,7 @@ namespace anime_list.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("AnimeListId,Name,Description,ScreenTime")] AnimeList animeList)
+        public async Task<IActionResult> Edit(int id, [Bind("AnimeListId,Name,Description,ScreenTime,Image")] AnimeList animeList)
         {
             if (id != animeList.AnimeListId)
             {
