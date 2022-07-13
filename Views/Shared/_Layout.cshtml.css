@@ -46,3 +46,25 @@ button.accept-policy {
   white-space: nowrap;
   line-height: 60px;
 }
+
+
+.logOutbtn{
+  background-color: yellow;
+  transition-duration: 0.4s;
+  border-radius: 2px;
+}
+
+.lButn {
+  color: white;
+  text-align: center;
+  text-decoration:solid;
+  font-size: 15px;
+  margin: 4px 2px;
+  cursor: pointer;
+  text-decoration: solid;
+}
+
+.logOutbtn:hover {
+  background-color: orange; 
+  color: white;
+}
