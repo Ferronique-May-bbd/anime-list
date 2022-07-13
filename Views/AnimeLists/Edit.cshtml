@@ -1,4 +1,4 @@
-﻿@model anime_list.Data.AnimeList
+﻿@model anime_list.Data.AnimeWithRating
 
 @{
     ViewData["Title"] = "Edit";
@@ -14,6 +14,11 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="AnimeListId" />
             <div class="form-group">
+                <label asp-for="Image" class="control-label"></label>
+                <input asp-for="Image" class="form-control" />
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
@@ -27,7 +32,8 @@
                 <label asp-for="ScreenTime" class="control-label"></label>
                 <input asp-for="ScreenTime" class="form-control" />
                 <span asp-validation-for="ScreenTime" class="text-danger"></span>
-            </div>
+            </div><br />
+           
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
