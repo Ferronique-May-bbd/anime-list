@@ -2,9 +2,78 @@
     ViewData["Title"] = "Home Page";
 }
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="google-signin-client_id" content="1016450376071-9gqacb7hgo3o17ru48rq0g4ode9mqvre.apps.googleusercontent.com">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/homePage.css" asp-append-version="true" />
+ 
+</head>
+<body>
+
 <div class="text-center">
-    <h1 class="display-4">Welcome To Your Anime Home !</h1>
-     <a class="navbar-brand" asp-area="" asp-controller="AnimeLists" asp-action="Index">
-         <button type="button" class="btn btn-warning">Anime Lists</button>
-    </a>
+    <h1 class="header">Welcome To Your Anime Home !</h1>
 </div>
+   
+<div class="container">
+  <div class="faders">
+    <div class="left"></div>
+    <div class="right"></div>
+  </div>
+
+  <div class="items">
+    <div class="animeCard">
+    
+      <img src="https://i.pinimg.com/originals/c2/ba/e2/c2bae211b44acfaf4667f562353108ee.jpg" />
+
+    </div>
+    <div class="animeCard">
+      <img src="https://animeforums.net/uploads/monthly_2018_03/5ab723106c024_Project1finished.png.2ec700f0a5b97979bf87e0b36dfa2cc2.png"  />
+     
+    </div>
+    <div class="animeCard">
+      
+      <img src="https://image.api.playstation.com/vulcan/ap/rnd/202106/1704/JzL1NLQvok7Pghe9W5PP2XNV.png"  />
+  
+    </div>
+    <div class="animeCard">
+    
+      <img src="https://i.pinimg.com/736x/0c/02/19/0c0219a324b921105519696ece3bb632.jpg"  />
+    
+    </div>
+    <div class="animeCard">
+   
+      <img src="https://data.whicdn.com/images/354289844/original.jpg" />
+
+    </div>
+    <div class="animeCard">
+    
+      <img src="https://images7.alphacoders.com/418/418724.png"  />
+   
+    </div>
+    <div class="animeCard">
+  
+      <img src="https://otakukart.com/wp-content/uploads/2022/03/Relatable-Pain-Quotes-From-Naruto-Anime-Series-1.jpg"  />
+    
+    </div>
+    <div class="animeCard">
+      <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/46/Jujutsu_kaisen.jpg/220px-Jujutsu_kaisen.jpg"  />
+    </div>
+  </div>
+</div>
+
+<br>
+<div class="text-center">
+      <a class="navbar-brand" asp-area="" asp-controller="AnimeLists" asp-action="Index">
+        <button type="button" class="vButton vButn">View Anime</button></a>
+</div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+     <script src="~/js/homePage.js" asp-append-version="true"></script>
+</body>
+</html>
+
+
